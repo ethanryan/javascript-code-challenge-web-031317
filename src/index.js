@@ -9,15 +9,24 @@ $(document).ready(function(){
 //didn't get it working :(
 
 function submitForm() {
-  console.log('form submitted!');
 
-  $('note-form').on('submit', function(event) {
-    var userInput = $('#userInput').val(); //our text input field
+  $('#note-form').on('submit', function(event) {
+    debugger
+    //need #note-form above
+
+    //need event.preventDefault() at the top of this function, not at the bottom
+    // event.preventDefault(); //prevents form from refreshing page on submit
+
+    console.log('form submitted!');
+
+    //need this ID to match the ID i gave this in the html page!
+    var userInput = $('#user-input').val(); //our text input field
     var newComment = $('<li>' + userInput + '</li>');
-    //$("#comment-list").prepend(newComment); // puts newItem at top of list
-    $("#comment-list").innerHTML(newComment); // puts newItem at top of list
+
+    $("#comment-list").prepend(newComment); // puts newItem at top of list
 
     event.preventDefault(); //prevents form from refreshing page on submit
+
   })
 }
 
